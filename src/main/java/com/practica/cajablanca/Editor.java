@@ -197,6 +197,7 @@ public class Editor {
 
     public static void main(String[] args) throws EmptyCollectionException {
         Editor editor = new Editor();
-        editor.leerFichero();
+        editor.leerFichero("src/main/java/com/practica/cajablanca/miTexto.txt");
+        System.out.println(editor.getLinea(1));
     }
 }
