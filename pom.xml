@@ -48,6 +48,7 @@
 		  <groupId>com.singleList</groupId>
 		  <artifactId>SingleList</artifactId>
 		  <version>0.0.1-SNAPSHOT</version>
+            <scope>main</scope>
 		</dependency>	
 	</dependencies>
 
