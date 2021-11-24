@@ -17,41 +17,30 @@ public class numPalabrasTest {
     Editor editor;
 
     @BeforeEach
-    public void initialization(){
+    public void initialization() {
         editor = new Editor();
         editor.leerFichero("src/main/java/com/practica/cajablanca/miTexto.txt");
     }
 
-    @Test
-    public void emptyEditorNumPalabras(){
-        Editor editor = new Editor();
-        assertThrows(EmptyCollectionException.class, editor::numPalabras);
-    }
 
     @Test
-    public void lineaInicioTest(){
-        Editor editor = new Editor();
-        assertThrows(IllegalArgumentException.class, () -> editor.numPalabras(-1,2,"Lorem") );
+    public void camino4Test() {
+        Editor editorVacio = new Editor();
+        assertThrows(IllegalArgumentException.class, () -> editorVacio.numPalabras(1, 3, "Lorem"));
     }
-    @Test
-    public void lineaFinTest(){
-        Editor editor = new Editor();
-        assertThrows(IllegalArgumentException.class, () -> editor.numPalabras(2,-2,"Lorem") );
-    }
-    @Test
-    public void lineaInicioMaxTest(){
-        Editor editor = new Editor();
-        assertThrows(IllegalArgumentException.class, () -> editor.numPalabras(50,-2,"Lorem") );
-    }
-    @DisplayName("Test parameterizados linea de inicio y fin")
+
+    @DisplayName("Test parametrizados para excepciones")
     @ParameterizedTest
-    @CsvSource(value = {"-1:2:Lorem", "2:-2:Lorem", "50:3:Lorem"}, delimiter = ':')
-    public void elementoTest(int inicio, int fin, String palabra) {
+    @CsvSource(value = {"-1:2:Lorem", "2:-2:Lorem", "2:50:Lorem"}, delimiter = ':')
+    public void excepcionesTest(int inicio, int fin, String palabra) {
         assertThrows(IllegalArgumentException.class, () ->editor.numPalabras(inicio, fin, palabra));
     }
 
-    @Test
-    public void noEncuentraPalabraTest(){
-        assertEquals(0, editor.numPalabras(1,2,"Hola"));
+    @DisplayName("Test parametrizados para igualdades")
+    @ParameterizedTest
+    @CsvSource(value = {"50:3:Lorem", "1:3:Hola","1:2:Hola"}, delimiter = ':')
+    public void equalsTest(int inicio, int fin, String palabra) {
+        assertEquals(0, editor.numPalabras(inicio, fin, palabra));
     }
+
 }
