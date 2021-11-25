@@ -80,7 +80,7 @@ public class Editor {
             e.printStackTrace();
         } finally {
             // En el finally cerramos el fichero, para asegurarnos
-            // que se cierra, tanto si todo va bien como si salta
+            // que se cierra, tanto todo va bien como si salta
             // una excepcion.
             try {
                 if (null != fr) {
@@ -201,5 +201,6 @@ public class Editor {
         editor.leerFichero("src/main/java/com/practica/cajablanca/miTexto.txt");
         System.out.println(editor.getLinea(1));
         System.out.println(editor.mayorLongitud());
+        System.out.println(editor.numPalabras(1,2,"Lorem"));
     }
 }

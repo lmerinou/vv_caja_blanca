@@ -15,13 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class numPalabrasTest {
 
     Editor editor;
-
     @BeforeEach
     public void initialization() {
         editor = new Editor();
         editor.leerFichero("src/main/java/com/practica/cajablanca/miTexto.txt");
     }
-
 
     @Test
     public void camino4Test() {
@@ -42,5 +40,11 @@ public class numPalabrasTest {
     public void equalsTest(int inicio, int fin, String palabra) {
         assertEquals(0, editor.numPalabras(inicio, fin, palabra));
     }
+
+    @Test
+    public void camino9Test(){
+        assertEquals(1, editor.numPalabras(1,2,"Lorem"));
+    }
+
 
 }
