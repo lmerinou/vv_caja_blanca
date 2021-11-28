@@ -181,6 +181,7 @@ public class Editor {
                 this.lista = this.editor.getAtPos(i);
                 int j = 1;
                 while (j <= this.lista.size()) {
+
                     if (this.lista.getAtPos(j).equals(palabra)) {
                         aux.addLast(nuevaPalabra);
                     } else {
