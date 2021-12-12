@@ -126,24 +126,6 @@ public class Editor {
         return apariciones;
     }
 
-    public int numPalabras() throws EmptyCollectionException {
-        if (this.editIsEmpty()) {
-            throw new EmptyCollectionException("El editor está vacío");
-        }
-        int numPalabras = 0;
-        if (this.size() > 0) {
-            int i = 1;
-            while (i <= this.size()) {
-                this.lista = getLinea(i);
-                for (String s : lista) {
-                    numPalabras++;
-                }
-                i++;
-            }
-        }
-        return numPalabras;
-    }
-
     /**
      * @return la palabra de mayor longitud
      * @throws EmptyCollectionException
