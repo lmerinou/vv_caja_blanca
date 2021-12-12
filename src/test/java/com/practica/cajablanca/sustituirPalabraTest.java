@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 
 public class sustituirPalabraTest {
@@ -21,10 +22,9 @@ public class sustituirPalabraTest {
     } */
 
     @Test
-    public void camino1Test() {
+    public void camino1Test() { //
         Editor editorVacio = new Editor();
-        editor.leerFichero("src/main/java/com/practica/cajablanca/miTexto.txt");
-        assertThrows(EmptyCollectionException.class, () -> editorVacio.sustituirPalabra("neglegentur","NUEVA"));
+        assertDoesNotThrow( () -> {editorVacio.sustituirPalabra("neglegentur","NUEVA");});
     }
 
     @DisplayName("Test palabra sustituida")
